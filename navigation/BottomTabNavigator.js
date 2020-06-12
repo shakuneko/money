@@ -1,9 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet, Text, View,Image } from 'react-native';
 import * as React from 'react';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import BagScreen from '../screens/BagScreen';
+import PersonalScreen from '../screens/PersonalScreen';
+import ListScreen from '../screens/ListScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -15,24 +18,81 @@ export default function BottomTabNavigator({ navigation, route }) {
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
+    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
+      tabBarOptions={{
+        activeTintColor:'#FFFFFF',
+        inactiveTintColor:'gray',
+        style:{
+          backgroundColor:'#4D4231',
+          height:60,
+        }
+      }}>
+        
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
+          title: "首頁",
+          tabBarIcon: ({ focused ,tintColor }) => {
+            if(focused ){
+              return(
+              <Image style = {{width:50,height:50}} source = {require("../assets/images/home.png")}/>)}
+              else{
+                return(
+             <Image style = {{width:40,height:40}} source = {require("../assets/images/home.png")}/>)}
+          }
+
         }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Bag"
+        component={BagScreen}
         options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
+          title: '收付',
+          tabBarIcon: ({ focused }) => {
+          if(focused ){
+            return(
+            <Image style = {{width:50,height:50}} source = {require("../assets/images/money.png")}/>)}
+            else{
+              return(
+           <Image style = {{width:40,height:40}} source = {require("../assets/images/money.png")}/>)}
+        }
         }}
       />
+       <BottomTab.Screen
+        name="Personal"
+        component={PersonalScreen}
+        options={{
+          title: '個人頁面',
+          tabBarIcon: ({ focused }) => {
+            if(focused ){
+              return(
+              <Image style = {{width:50,height:50}} source = {require("../assets/images/list.png")}/>)}
+              else{
+                return(
+             <Image style = {{width:40,height:40}} source = {require("../assets/images/list.png")}/>)}
+          }
+        }}
+      />
+       <BottomTab.Screen
+        name="List"
+        component={ListScreen}
+        options={{
+          title: '收據明細',
+          tabBarIcon: ({ focused }) => {
+            if(focused ){
+              return(
+              <Image style = {{width:50,height:50}} source = {require("../assets/images/personal.png")}/>)}
+              else{
+                return(
+             <Image style = {{width:40,height:40}} source = {require("../assets/images/personal.png")}/>)}
+          }
+        }}
+      />
+
+
     </BottomTab.Navigator>
+    
   );
 }
 
