@@ -15,7 +15,6 @@ export default function BottomTabNavigator({ navigation, route }) {
   // Set the header title on the parent stack navigator depending on the
   // currently active tab. Learn more in the documentation:
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
-  navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
@@ -59,11 +58,11 @@ export default function BottomTabNavigator({ navigation, route }) {
         }
         }}
       />
-       <BottomTab.Screen
-        name="Personal"
-        component={PersonalScreen}
+      <BottomTab.Screen
+        name="List"
+        component={ListScreen}
         options={{
-          title: '個人頁面',
+          title: '收據明細',
           tabBarIcon: ({ focused }) => {
             if(focused ){
               return(
@@ -75,10 +74,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
        <BottomTab.Screen
-        name="List"
-        component={ListScreen}
+        name="Personal"
+        component={PersonalScreen}
         options={{
-          title: '收據明細',
+          title: '個人頁面',
           tabBarIcon: ({ focused }) => {
             if(focused ){
               return(
@@ -89,20 +88,7 @@ export default function BottomTabNavigator({ navigation, route }) {
           }
         }}
       />
-
-
     </BottomTab.Navigator>
-    
   );
 }
 
-function getHeaderTitle(route) {
-  const routeName = route.state?.routes[route.state.index]?.name ?? INITIAL_ROUTE_NAME;
-
-  switch (routeName) {
-    case 'Home':
-      return 'How to get started';
-    case 'Links':
-      return 'Links to learn more';
-  }
-}
