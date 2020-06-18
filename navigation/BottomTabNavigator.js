@@ -1,12 +1,11 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, Text, View,Image } from 'react-native';
 import * as React from 'react';
-
+import { StyleSheet, Text, View,Image } from 'react-native';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import BagScreen from '../screens/BagScreen';
-import PersonalScreen from '../screens/PersonalScreen';
+import LinksScreen from '../screens/LinksScreen';
 import ListScreen from '../screens/ListScreen';
+import PersonalScreen from '../screens/PersonalScreen';
 
 const BottomTab = createBottomTabNavigator();
 const INITIAL_ROUTE_NAME = 'Home';
@@ -26,13 +25,12 @@ export default function BottomTabNavigator({ navigation, route }) {
           height:60,
         }
       }}>
-        
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          title: "首頁",
-          tabBarIcon: ({ focused ,tintColor }) => {
+          title: '首頁',
+          tabBarIcon: ({ focused }) => {
             if(focused ){
               return(
               <Image style = {{width:50,height:50}} source = {require("../assets/images/home.png")}/>)}
@@ -40,24 +38,25 @@ export default function BottomTabNavigator({ navigation, route }) {
                 return(
              <Image style = {{width:40,height:40}} source = {require("../assets/images/home.png")}/>)}
           }
-
+          
         }}
       />
       <BottomTab.Screen
-        name="Bag"
-        component={BagScreen}
+        name="Links"
+        component={LinksScreen}
         options={{
           title: '收付',
           tabBarIcon: ({ focused }) => {
-          if(focused ){
-            return(
-            <Image style = {{width:50,height:50}} source = {require("../assets/images/money.png")}/>)}
-            else{
+            if(focused ){
               return(
-           <Image style = {{width:40,height:40}} source = {require("../assets/images/money.png")}/>)}
-        }
+              <Image style = {{width:50,height:50}} source = {require("../assets/images/money.png")}/>)}
+              else{
+                return(
+             <Image style = {{width:40,height:40}} source = {require("../assets/images/money.png")}/>)}
+          }
         }}
       />
+
       <BottomTab.Screen
         name="List"
         component={ListScreen}
