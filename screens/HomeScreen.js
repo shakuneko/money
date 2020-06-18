@@ -1,7 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View,ImageBackground,ScrollView } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+//import { ScrollView } from 'react-native-gesture-handler';
 
 import { MonoText } from '../components/StyledText';
 
@@ -15,6 +15,8 @@ export default function HomeScreen() {
             <Text style={{fontSize:12}}>帳戶金額</Text>
             <Text style={{fontSize:20}}>$32000</Text>
           </View>
+          </ImageBackground>
+          <ScrollView style={{height:900,backgroundColor:'#fff'}}>
           <View style={styles.frame1}>
               <Text style={{top:12,left:131,fontSize:20}}>回饋報告</Text>
               <View style={styles.line}></View>
@@ -35,14 +37,22 @@ export default function HomeScreen() {
             <Text style={{top:12,left:131,fontSize:20}}>活動優惠</Text>
             <View style={styles.line}></View>
               <View style={styles.square}>
-              <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/1.png")}/>
-              <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/2.jpg")}/>
-             
+                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/1.png")}/>
+                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/2.jpg")}/>
+              </View>
+              <View style={styles.square}>
+                <Image style = {{top:24,width:147,height:118}} source = {require("../assets/images/3.jpg")}/>
+                <Image style = {{top:24,width:147,height:118}} source = {require("../assets/images/4.png")}/>
+              </View>
+              <View style={styles.square}>
+                <Image style = {{top:36,width:147,height:118}} source = {require("../assets/images/5.png")}/>
+                <Image style = {{top:36,width:147,height:118}} source = {require("../assets/images/6.jpg")}/>
               </View>
 
 
           </View>
-        </ImageBackground>
+          </ScrollView>
+       
         </View>
         
       
@@ -63,7 +73,7 @@ const styles = StyleSheet.create({
    alignItems:"center",
  },
  frame1:{
-   top:52,
+   top:40,
    left:12,
   width:338,
   height:161,
@@ -74,7 +84,7 @@ const styles = StyleSheet.create({
   top:75,
   left:12,
  width:338,
- height:233,
+ height:600,
  backgroundColor:"#FFFCE2",
  borderRadius:30
 },
@@ -95,6 +105,7 @@ const styles = StyleSheet.create({
   justifyContent:"space-around",
   
  },
+ 
  square1:{
    top:10,
   width:135,
