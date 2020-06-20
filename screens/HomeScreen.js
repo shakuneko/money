@@ -37,8 +37,8 @@ export default function HomeScreen() {
             <Text style={{top:12,left:131,fontSize:20}}>活動優惠</Text>
             <View style={styles.line}></View>
               <View style={styles.square}>
-                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/1.png")}/>
-                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/2.jpg")}/>
+                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/discount.png")}/>
+                <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/discount2.png")}/>
               </View>
               <View style={styles.square}>
                 <Image style = {{top:24,width:147,height:118}} source = {require("../assets/images/3.jpg")}/>
