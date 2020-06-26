@@ -2,7 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import{VictoryPie,VictoryBar, VictoryAnimation, VictoryArea, VictoryAxis, VictoryBoxPlot}from "victory-native"
+import{VictoryPie,VictoryLegend }from "victory-native"
 import { MonoText } from '../components/StyledText';
 const sampleData=[
   { x:"收入" , y:60 },
@@ -11,6 +11,7 @@ const sampleData=[
 const dataColor =["#FFEB6C","#F8CB60"];
 export default function PersonalScreen() {
   return (
+    <ScrollView >
     <View style={styles.container}>
       <View style={styles.square}>
         <View style={styles.title}>
@@ -35,33 +36,46 @@ export default function PersonalScreen() {
             </View>
           </View>
         </View>
-        <ScrollView style={{top:-20,height:900}}>
+        <View style={{justifyContent:"center",display:"flex",alignItems:"center",width:"94.5%"}}>
             <View  style={styles.square2}>
-                <Text style={{top:12,left:131,fontSize:20,color:"#15A7CC",marginTop:10}}>帳務分析</Text>
-                <View style={{flexDirection:"row"}}>
-                  <View style={{top:-90,left:70}}>
+                <Text style={{fontSize:20,color:"#15A7CC",marginTop:15}}>帳務分析</Text>
+                  <View style={{flexDirection:"row",alignItems:"center",width:200,justifyContent:"space-between",margin:20}}>
+                    <View>
                     <VictoryPie
-                      width={200}
+                    padding={{top:0,left:0}}
+                      width={100}
+                      height={100}
                       data={sampleData}
+                      labels={()=>''}
                       colorScale={dataColor}
                       innerRadius={20}
                       />
-                    </View>
+                     </View>
+                     <View style={{height:50}}>
+                      <VictoryLegend 
+                      padding={{ top: 0, left: 0 }} 
+                      title="" orientation="vertical" 
+                      style={{ labels: { fontSize: 12 }}} 
+                      gutter={25} 
+                      data={[ { name: '支出', symbol: { fill: '#FFEB6C', type: 'square' }, }, 
+                      { name: '收入', symbol: { fill: '#F8CB60', type: 'square' }, }, ]} 
+                      width={70} 
+                      />
+                     </View>
+                  </View>
                 <View style={styles.frame}>
                   <View style={styles.frame1}>
                     <Text style={{fontSize:12,color:"#787878"}}>三月總支出</Text>
+                    <Text style={{fontSize:20,color:"#15A7CC",marginTop:5}}>4800</Text>
+                  </View>
+                  <View style={styles.frame1}>
                     <Text style={{fontSize:12,color:"#787878"}}>帳戶餘額</Text>
+                    <Text style={{fontSize:20,color:"#15A7CC",marginTop:5}}>32000</Text>
                   </View>
-                  <View style={styles.frame2}>
-                    <Text style={{fontSize:20,color:"#15A7CC"}}>4800</Text>
-                    <Text style={{fontSize:20,color:"#15A7CC",marginLeft:5}}>32000</Text>
-                  </View>
-
-                </View>
                 </View>
             </View>
             <View  style={styles.square3}>
-            <Text style={{fontSize:20,color:"#15A7CC",marginTop:10}}>我的群組</Text>
+            <Text style={{fontSize:20,color:"#15A7CC",marginTop:15}}>我的群組</Text>
               <View style={{flexDirection:"row",justifyContent:"space-around",width:300,alignItems:"center",marginTop:20}}>
                   <View style={styles.family}> 
                     <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/family.png")}/>
@@ -73,7 +87,7 @@ export default function PersonalScreen() {
               </View>
               <View style={{flexDirection:"row",justifyContent:"space-around",width:300,alignItems:"center",marginTop:20}}>
                   <View style={styles.family}> 
-                    <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/family.png")}/>
+                    <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/company.png")}/>
                   </View>
                   <View>
                     <Text style={{lineHeight:30}}>公司-會計零用金</Text>
@@ -82,11 +96,11 @@ export default function PersonalScreen() {
               </View>
 
             </View>
-          
+            </View>
 
-       
+            </View>
       </ScrollView>
-      </View>
+      
   );
 }
 
@@ -94,6 +108,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFCE2',
+    justifyContent:"center"
   },
   square:{
     paddingLeft:20,
@@ -136,35 +151,30 @@ const styles = StyleSheet.create({
   },
   square2:{
     left:10,
-    width:338,
+    width:300,
     height:290,
     backgroundColor:"#FFF",
-    borderRadius:30
+    borderRadius:30,
+    justifyContent:"flex-start",
+    alignItems:"center"
   },
   frame:{
-    width:311,
+    flexDirection:"row",
+    justifyContent:"space-around",
+    width:250,
     height:89,
-    top:155,
-    left:-185,
     backgroundColor:"#FFEB6C",
     borderRadius:16,
+    
   },
   frame1:{
-    flexDirection:"row",
-    justifyContent:"space-around",
-    width:300,
-    marginTop:21
-  },
-  frame2:{
-    flexDirection:"row",
-    justifyContent:"space-around",
-    width:300,
-    marginTop:10,
-    marginLeft:5
+    flexDirection:"column",
+    marginTop:21,
+    alignItems:"center"
   },
   square3:{
     left:10,
-    width:338,
+    width:300,
     height:290,
     backgroundColor:"#FFF",
     borderRadius:30,

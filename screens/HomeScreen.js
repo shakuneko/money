@@ -8,15 +8,17 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ImageBackground  style = {{width:360,height:206,backgroundColor:"rgba(52,52,52,0)"}}source = {require("../assets/images/Top.png")}>
-          <Image style = {styles.ring} source = {require("../assets/images/Ring.png")}/>
-          <Image style = {styles.logout} source = {require("../assets/images/logout.png")}/>
-          <View style={styles.circle}>
-          <Image style = {{width:89,height:89}} source = {require("../assets/images/Head.png")}/>
-            <Text style={{fontSize:12}}>帳戶金額</Text>
-            <Text style={{fontSize:20}}>$32000</Text>
+      <ImageBackground  style = {{width:360,height:206,justifyContent:"center"}}source = {require("../assets/images/Top.png")}>
+          <View style={{height:90,flexDirection:"row",justifyContent:"space-around",alignItems:"center"}}>
+            <Image style = {styles.ring} source = {require("../assets/images/Ring.png")}/>
+            <Image style = {{width:89,height:89}} source = {require("../assets/images/Head.png")}/>
+            <Image style = {styles.logout} source = {require("../assets/images/logout.png")}/>
           </View>
-          </ImageBackground>
+          <View style={styles.circle}>
+          <Text style={{fontSize:12}}>帳戶金額</Text>
+              <Text style={{fontSize:20}}>$32000</Text>
+            </View>
+        </ImageBackground>
           <ScrollView style={{height:900}}>
           <View style={styles.frame1}>
               <Text style={{top:12,left:131,fontSize:20}}>回饋報告</Text>
@@ -65,21 +67,17 @@ const styles = StyleSheet.create({
   },
   
  ring:{
-  width:40,
-  height:40,
-  top:24,
-  left:18
+  width:35,
+  height:35,
  },
  logout:{
-  width:40,
-  height:40,
-  top:-16,
-  left:300
+  width:35,
+  height:35,
  },
  circle:{
-   justifyContent:"center",
-   alignItems:"center",
-   top:-30
+  justifyContent:"flex-start",
+  alignItems:"center",
+  marginTop:10
  },
  frame1:{
    top:40,
