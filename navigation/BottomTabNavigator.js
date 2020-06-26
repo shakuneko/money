@@ -18,11 +18,12 @@ export default function BottomTabNavigator({ navigation, route }) {
   return (
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}
       tabBarOptions={{
-        activeTintColor:'#FFFFFF',
-        inactiveTintColor:'gray',
+        activeTintColor:'#fff',
+        inactiveTintColor:'#FFEB6C',
         style:{
-          backgroundColor:'#4D4231',
-          height:60,
+          backgroundColor:'#F1AB86',
+          height:65,
+         
         }
       }}>
       <BottomTab.Screen

@@ -7,9 +7,22 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 export default function BagScreen() {
   return (
     <View style={styles.container}>
-    <View>
-      <Text>I'm memo</Text>
-    </View>
+     <View style={styles.header}>
+      <View style={{alignItems:"center"}}>
+        <Text style={{fontSize:20,color:"#FFFFFF",marginTop:25}}>收付</Text>
+          <View style={{width:300,height:80,flexDirection:"row",justifyContent:"space-around",alignItems:"center"}}>
+            <View style={{alignItems:"center"}}>
+              <Text style={{fontSize:15,color:"#FFFFFF"}}>本月支出</Text>
+              <Text style={{fontSize:15,color:"#FFFFFF"}}>$6780</Text>
+            </View>
+            <View style={{width:0.5,height:44,backgroundColor:"#fff",borderRadius:10}}></View>
+            <View style={{alignItems:"center"}}>
+              <Text style={{fontSize:15,color:"#FFFFFF"}}>本月收入</Text>
+              <Text style={{fontSize:15,color:"#FFFFFF"}}>$2000</Text>
+            </View>
+          </View>
+      </View>
+      </View>
     </View>
   )
 }
@@ -34,5 +47,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  
+  header:{
+    width:375,
+    height:150,
+    backgroundColor:"#F1AB86"
+  }
 });

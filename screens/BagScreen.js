@@ -7,8 +7,8 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 export default function BagScreen() {
   return (
     <View style={styles.container}>
-    <View>
-      <Text>I'm memo</Text>
+    <View style={styles.header}>
+      
     </View>
     </View>
   )
@@ -34,5 +34,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  
+  header:{
+    width:375,
+    height:117,
+    backgroundColor:"#F1AB86"
+  }
 });
