@@ -35,31 +35,58 @@ export default function PersonalScreen() {
             </View>
           </View>
         </View>
-        <View  style={styles.square2}>
-          <Text style={{top:12,left:131,fontSize:20}}>帳務分析</Text>
-          <View style={{flexDirection:"row"}}>
-            <View style={{top:-95,left:30}}>
-              <VictoryPie
-                width={200}
-                data={sampleData}
-                colorScale={dataColor}
-                innerRadius={20}/>
+        <ScrollView style={{top:-20,height:900}}>
+            <View  style={styles.square2}>
+                <Text style={{top:12,left:131,fontSize:20,color:"#15A7CC",marginTop:10}}>帳務分析</Text>
+                <View style={{flexDirection:"row"}}>
+                  <View style={{top:-90,left:70}}>
+                    <VictoryPie
+                      width={200}
+                      data={sampleData}
+                      colorScale={dataColor}
+                      innerRadius={20}
+                      />
+                    </View>
+                <View style={styles.frame}>
+                  <View style={styles.frame1}>
+                    <Text style={{fontSize:12,color:"#787878"}}>三月總支出</Text>
+                    <Text style={{fontSize:12,color:"#787878"}}>帳戶餘額</Text>
+                  </View>
+                  <View style={styles.frame2}>
+                    <Text style={{fontSize:20,color:"#15A7CC"}}>4800</Text>
+                    <Text style={{fontSize:20,color:"#15A7CC",marginLeft:5}}>32000</Text>
+                  </View>
+
+                </View>
+                </View>
+            </View>
+            <View  style={styles.square3}>
+            <Text style={{fontSize:20,color:"#15A7CC",marginTop:10}}>我的群組</Text>
+              <View style={{flexDirection:"row",justifyContent:"space-around",width:300,alignItems:"center",marginTop:20}}>
+                  <View style={styles.family}> 
+                    <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/family.png")}/>
+                  </View>
+                  <View>
+                    <Text style={{lineHeight:30}}>家人</Text>
+                    <Text style={{lineHeight:30}}>帳戶餘額:48500</Text>
+                  </View>
               </View>
-             
-            <View style={styles.s1}>
-                <View style={{width:10,height:10, backgroundColor:"#FFEB6C",}}></View>
-                <Text>支出</Text>
-            </View>
-            <View style={styles.s2}>
-                <View style={{width:10,height:10, backgroundColor:"#F8CB60"}}></View>
-                <Text>收入</Text>
-            </View>
-          </View>
-         
+              <View style={{flexDirection:"row",justifyContent:"space-around",width:300,alignItems:"center",marginTop:20}}>
+                  <View style={styles.family}> 
+                    <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/family.png")}/>
+                  </View>
+                  <View>
+                    <Text style={{lineHeight:30}}>公司-會計零用金</Text>
+                    <Text style={{lineHeight:30}}>帳戶餘額:30000</Text>
+                  </View>
+              </View>
 
-        </View>
+            </View>
+          
 
-    </View>
+       
+      </ScrollView>
+      </View>
   );
 }
 
@@ -108,18 +135,49 @@ const styles = StyleSheet.create({
     marginRight:30,
   },
   square2:{
-    
+    left:10,
     width:338,
-    height:280,
+    height:290,
     backgroundColor:"#FFF",
     borderRadius:30
   },
-  s1:{
-    flexDirection: "row",
-
+  frame:{
+    width:311,
+    height:89,
+    top:155,
+    left:-185,
+    backgroundColor:"#FFEB6C",
+    borderRadius:16,
   },
-  s2:{
-    flexDirection: "row",
-
+  frame1:{
+    flexDirection:"row",
+    justifyContent:"space-around",
+    width:300,
+    marginTop:21
+  },
+  frame2:{
+    flexDirection:"row",
+    justifyContent:"space-around",
+    width:300,
+    marginTop:10,
+    marginLeft:5
+  },
+  square3:{
+    left:10,
+    width:338,
+    height:290,
+    backgroundColor:"#FFF",
+    borderRadius:30,
+    marginTop:14,
+    justifyContent:"flex-start",
+    alignItems:"center"
+  },
+  family:{
+      width:86,
+      height:86,
+      borderRadius:16,
+      backgroundColor:"#FFEB6C",
+      justifyContent:"center",
+      alignItems:"center"
   }
 });

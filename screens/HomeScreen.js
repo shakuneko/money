@@ -8,15 +8,16 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ImageBackground  style = {{width:360,height:206}}source = {require("../assets/images/Top.png")}>
+      <ImageBackground  style = {{width:360,height:206,backgroundColor:"rgba(52,52,52,0)"}}source = {require("../assets/images/Top.png")}>
           <Image style = {styles.ring} source = {require("../assets/images/Ring.png")}/>
+          <Image style = {styles.logout} source = {require("../assets/images/logout.png")}/>
           <View style={styles.circle}>
           <Image style = {{width:89,height:89}} source = {require("../assets/images/Head.png")}/>
             <Text style={{fontSize:12}}>帳戶金額</Text>
             <Text style={{fontSize:20}}>$32000</Text>
           </View>
           </ImageBackground>
-          <ScrollView style={{height:900,backgroundColor:'#fff'}}>
+          <ScrollView style={{height:900}}>
           <View style={styles.frame1}>
               <Text style={{top:12,left:131,fontSize:20}}>回饋報告</Text>
               <View style={styles.line}></View>
@@ -62,15 +63,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  
  ring:{
   width:40,
   height:40,
   top:24,
   left:18
  },
+ logout:{
+  width:40,
+  height:40,
+  top:-16,
+  left:300
+ },
  circle:{
    justifyContent:"center",
    alignItems:"center",
+   top:-30
  },
  frame1:{
    top:40,
