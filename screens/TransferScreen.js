@@ -56,12 +56,41 @@ const BagScreen = ({ navigation }) => {
               <Text style={{fontSize:17,color:"#707070"}}>轉出對象</Text>
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
-              <Image style = {{width:30,height:30}} source = {require("../assets/images/money.png")}/>
-              <Text  style={{fontSize:17,color:"#707070"}}>常用對象</Text>
+              <View style={{width:110,flexDirection:"row",justifyContent:"space-between"}}>
+                  <Image style = {{width:30,height:30}} source = {require("../assets/images/money.png")}/>
+                  <Text  style={{fontSize:17,color:"#707070"}}>常用對象</Text>
+              </View>
               <View style={styles.button2}>
                 <Text  style={{fontSize:12,color:"#707070"}}>更多...</Text>
               </View>
-
+          </View>
+          <View>
+            <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
+                <View>
+                    <View style={{width:89,height:80,backgroundColor:"#FFEB6C",alignItems:"center",justifyContent:"center"}}>
+                        <Image style = {{width:69,height:59}} source = {require("../assets/images/son.png")}/>
+                    </View>
+                    <View style={{width:89,height:30,backgroundColor:"#fff",alignItems:"center",justifyContent:"center"}}>
+                      <Text style={{fontSize:10,color:"#707070"}}>兒子</Text>
+                    </View>
+              </View>
+              <View>
+                    <View style={{width:89,height:80,backgroundColor:"#FFEB6C",alignItems:"center",justifyContent:"center"}}>
+                        <Image style = {{width:69,height:59}} source = {require("../assets/images/son.png")}/>
+                    </View>
+                    <View style={{width:89,height:30,backgroundColor:"#fff",alignItems:"center",justifyContent:"center"}}>
+                      <Text style={{fontSize:10,color:"#707070"}}>兒子</Text>
+                    </View>
+              </View>
+              <View>
+                    <View style={{width:89,height:80,backgroundColor:"#FFEB6C",alignItems:"center",justifyContent:"center"}}>
+                        <Image style = {{width:69,height:59}} source = {require("../assets/images/son.png")}/>
+                    </View>
+                    <View style={{width:89,height:30,backgroundColor:"#fff",alignItems:"center",justifyContent:"center"}}>
+                      <Text style={{fontSize:10,color:"#707070"}}>兒子</Text>
+                    </View>
+              </View>
+            </View>
           </View>
       </View>
     </View>
