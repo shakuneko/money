@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     top:-35,
     width:"100%",
     height:230,
-    backgroundColor:"#FFEB6C",
+    backgroundColor:"#F1AB86",
     borderRadius:40
   },
   title:{

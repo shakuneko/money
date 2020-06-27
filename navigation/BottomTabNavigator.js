@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View,Image } from 'react-native';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import PayScreen from '../screens/PayScreen';
 import ListScreen from '../screens/ListScreen';
 import PersonalScreen from '../screens/PersonalScreen';
 
@@ -43,8 +43,8 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
+        name="Pay"
+        component={PayScreen}
         options={{
           title: '收付',
           tabBarIcon: ({ focused }) => {

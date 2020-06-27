@@ -15,29 +15,29 @@ export default function HomeScreen() {
             <Image style = {styles.logout} source = {require("../assets/images/logout.png")}/>
           </View>
           <View style={styles.circle}>
-          <Text style={{fontSize:12}}>帳戶金額</Text>
-              <Text style={{fontSize:20}}>$32000</Text>
+          <Text style={{fontSize:12,color:"#fff"}}>帳戶金額</Text>
+              <Text style={{fontSize:20,color:"#fff"}}>$32000</Text>
             </View>
         </ImageBackground>
           <ScrollView style={{height:900}}>
           <View style={styles.frame1}>
-              <Text style={{top:12,left:131,fontSize:20}}>回饋報告</Text>
+              <Text style={{top:12,left:131,fontSize:20,color:"#707070"}}>回饋報告</Text>
               <View style={styles.line}></View>
                 <View style={styles.square}>
                   <View style={styles.square1}>
-                    <Text style={{top:5,left:28,fontSize:20}}>跨行次數</Text>
+                    <Text style={{top:5,left:28,fontSize:20,color:"#707070"}}>跨行次數</Text>
                   </View>
                   <View style={styles.square1}>
-                    <Text style={{top:5,left:28,fontSize:20}}>紅利點數</Text>
+                    <Text style={{top:5,left:28,fontSize:20,color:"#707070"}}>紅利點數</Text>
                   </View>
                 </View>
                 <View style={styles.square2}>
-                    <Text style={{fontSize:25}}>5</Text>
-                    <Text style={{fontSize:25}}>10</Text>
+                    <Text style={{fontSize:25,color:"#707070"}}>5</Text>
+                    <Text style={{fontSize:25,color:"#707070"}}>10</Text>
                   </View>
             </View>
             <View style={styles.frame2}>
-            <Text style={{top:12,left:131,fontSize:20}}>活動優惠</Text>
+            <Text style={{top:12,left:131,fontSize:20,color:"#707070"}}>活動優惠</Text>
             <View style={styles.line}></View>
               <View style={styles.square}>
                 <Image style = {{top:12,width:147,height:118}} source = {require("../assets/images/discount.png")}/>
@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    
   },
   
  ring:{
