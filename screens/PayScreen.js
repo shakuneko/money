@@ -1,10 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
-export default function PayScreen() {
+const PayScreen = ({ navigation }) => {
   return (
   <ScrollView>
     <View style={styles.container}>
@@ -40,10 +40,13 @@ export default function PayScreen() {
             </View>
         </View>
         <View style={{flexDirection:"row",justifyContent:"space-around"}}>
+          <TouchableOpacity
+                    onPress={() => navigation.push('TransferScreen')}>
             <View style={styles.square}>
               <Image style = {{width:50,height:50}} source = {require("../assets/images/transfer.png")}/>
               <Text style={{fontSize:15,color:"#707070"}}>轉帳</Text>
             </View>
+          </TouchableOpacity>
             <View style={styles.square}>
               <Image style = {{width:50,height:50}} source = {require("../assets/images/withdrawal.png")}/>
               <Text style={{fontSize:15,color:"#707070"}}>無卡提款</Text>
@@ -145,3 +148,4 @@ const styles = StyleSheet.create({
     //backgroundColor:"black",
   }
 });
+export default PayScreen;
