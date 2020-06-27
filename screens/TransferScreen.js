@@ -52,6 +52,17 @@ const BagScreen = ({ navigation }) => {
             </View>
           </View>
           <View style={{width:370,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
+              <View style={{width:310,justifyContent:"space-between",marginTop:17}}>
+              <Text style={{fontSize:17,color:"#707070"}}>轉出對象</Text>
+          </View>
+          <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
+              <Image style = {{width:30,height:30}} source = {require("../assets/images/money.png")}/>
+              <Text  style={{fontSize:17,color:"#707070"}}>常用對象</Text>
+              <View style={styles.button2}>
+                <Text  style={{fontSize:12,color:"#707070"}}>更多...</Text>
+              </View>
+
+          </View>
       </View>
     </View>
   )
