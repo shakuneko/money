@@ -36,10 +36,10 @@ export default function PersonalScreen() {
             </View>
           </View>
         </View>
-        <View style={{justifyContent:"center",display:"flex",alignItems:"center",width:"94.5%"}}>
+        <View style={{justifyContent:"center",display:"flex",alignItems:"center",width:"94.5%",marginBottom:30}}>
             <View  style={styles.square2}>
                 <Text style={{fontSize:20,color:"#15A7CC",marginTop:15}}>帳務分析</Text>
-                  <View style={{flexDirection:"row",alignItems:"center",width:200,justifyContent:"space-between",margin:20}}>
+                  <View style={{flexDirection:"row",alignItems:"center",width:220,justifyContent:"space-between",margin:20}}>
                     <View>
                     <VictoryPie
                     padding={{top:0,left:0}}
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   },
   square2:{
     left:10,
-    width:300,
+    width:330,
     height:290,
     backgroundColor:"#FFF",
     borderRadius:30,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   frame:{
     flexDirection:"row",
     justifyContent:"space-around",
-    width:250,
+    width:280,
     height:89,
     backgroundColor:"#FFEB6C",
     borderRadius:16,
@@ -174,11 +174,11 @@ const styles = StyleSheet.create({
   },
   square3:{
     left:10,
-    width:300,
+    width:330,
     height:290,
     backgroundColor:"#FFF",
     borderRadius:30,
-    marginTop:14,
+    marginTop:20,
     justifyContent:"flex-start",
     alignItems:"center"
   },

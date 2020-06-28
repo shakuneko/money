@@ -22,7 +22,7 @@ export default function BottomTabNavigator({ navigation, route }) {
         inactiveTintColor:'#FFEB6C',
         style:{
           backgroundColor:'#F1AB86',
-          height:65,
+          height:60,
          
         }
       }}>

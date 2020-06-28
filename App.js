@@ -9,6 +9,8 @@ import LinkingConfiguration from './navigation/LinkingConfiguration';
 import TransferScreen from "./screens/TransferScreen";
 import ConfirmScreen from "./screens/ConfirmScreen";
 import FinishScreen from "./screens/FinishScreen"
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,12 +24,20 @@ export default function App(props) {
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer>
-          <Stack.Navigator>
+          <Stack.Navigator initialRootName="Login">
+          <Stack.Screen name = "Login" component={LoginScreen} 
+            options={{
+              headerStyle: {
+                height: 0,
+              },
+              headerShown:false
+            }}/>
             <Stack.Screen name=" " component={BottomTabNavigator} 
             options={{
             headerStyle: {
               height: 0,
             },
+            headerLeft: false
           }}/>
           <Stack.Screen name="TransferScreen" component={TransferScreen} 
            options={{
@@ -36,7 +46,7 @@ export default function App(props) {
               height: 0,
               backgroundColor: '#fafafa',
             },
-            headerLeft: null
+            headerLeft:false
           }}/>
           <Stack.Screen name="ConfirmScreen" component={ConfirmScreen} 
            options={{
@@ -45,7 +55,7 @@ export default function App(props) {
               height: 0,
               backgroundColor: '#fafafa',
             },
-            headerLeft: null
+            headerLeft: false
           }}/>
           <Stack.Screen name="FinishScreen" component={FinishScreen} 
            options={{
@@ -54,7 +64,14 @@ export default function App(props) {
               height: 0,
               backgroundColor: '#fafafa',
             },
-            headerLeft: null
+            headerLeft: false
+          }}/>
+           <Stack.Screen name = "Register" component={RegisterScreen} 
+          options={{
+            headerStyle: {
+              height: 0,
+            },
+            headerShown:false
           }}/>
           </Stack.Navigator>
         </NavigationContainer>

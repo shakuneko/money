@@ -10,7 +10,7 @@ const ConfirmScreen = ({ navigation }) => {
      
       <View style={styles.container}>
         <View style={styles.header}>
-            <View style={{width:270,flexDirection:"row",justifyContent:"space-around",marginTop:20}}>
+        <View style={{width:240,flexDirection:"row",marginTop:20,justifyContent:'space-around'}}>
               <TouchableOpacity
                   onPress={() => navigation.goBack()}>
                   <Image style = {{width:40,height:40}} source = {require("../assets/images/moo.png")}/>
@@ -18,17 +18,22 @@ const ConfirmScreen = ({ navigation }) => {
               <Text style={{fontSize:20,color:"#707070"}}>轉帳</Text>
             </View>
         </View>
-            <View style={{width:"100%",alignItems:"flex-end"}}>
-                <Image style = {{width:136,height:136}} source = {require("../assets/images/personal.png")}/>
-            </View>
         <View style={{width:"100%",alignItems:"center"}}>
-              <View style={{marginTop:-30}}>
+              <View style={{marginTop:30}}>
                 <Text style={{fontSize:17,color:"#707070"}}>確認帳號</Text>
-                <View style={{width:310,height:45,backgroundColor:"#fff",marginTop:15}}></View>
+                <View style={{width:310,height:45,backgroundColor:"#fff",marginTop:10}}></View>
               </View>
               <View style={{marginTop:15}}>
                 <Text style={{fontSize:17,color:"#707070"}}>確認金額</Text>
-                <View style={{width:310,height:45,backgroundColor:"#fff",marginTop:15}}></View>
+                <View style={{width:310,height:45,backgroundColor:"#fff",marginTop:10}}></View>
+              </View>
+              <View style={{width:320,justifyContent:"flex-end",alignItems:"flex-end"}}>
+                <View style={{flexDirection:"row",marginTop:15,width:130,justifyContent:"space-between"}}>
+                  <Text style={{fontSize:15,color:"#707070"}}>是否需要延遲</Text>
+                  <Checkbox
+                  checked={true}
+                  style={{backgroundColor: '#fff', color:'#15A7CC',borderRadius:2,borderColor:"#FFEB6C"}}/>
+                </View>
               </View>
               <TouchableOpacity
                     onPress={() => navigation.push('FinishScreen')}>
@@ -37,10 +42,10 @@ const ConfirmScreen = ({ navigation }) => {
                     </View>
           </TouchableOpacity>
              
-              <View style={{width:370,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
+              <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:10}}></View>
 
-              <View style={{width:"100%",alignItems:"flex-start",marginTop:40}}>
-                <Image style = {{width:350,height:350}} source = {require("../assets/images/togeder.png")}/>
+              <View style={{width:"100%",alignItems:"flex-start",marginTop:20}}>
+                <Image style = {{width:250,height:250}} source = {require("../assets/images/togeder.png")}/>
             </View>
 
 
@@ -61,15 +66,15 @@ const ConfirmScreen = ({ navigation }) => {
     },
     header:{
       width:"100%",
-      height:100,
+      height:71,
       backgroundColor:"#ADDEDA",
       flexDirection:"row",
       alignItems:"center",
       //justifyContent:"center"
     },
     button3:{
-      width:160,
-      height:45,
+      width:147,
+      height:43,
       backgroundColor:"#FFEB6C",
       borderRadius:17,
       alignItems:"center",

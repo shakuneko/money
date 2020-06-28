@@ -10,7 +10,7 @@ const BagScreen = ({ navigation }) => {
    
     <View style={styles.container}>
       <View style={styles.header}>
-          <View style={{width:270,flexDirection:"row",justifyContent:"space-around",marginTop:20}}>
+          <View style={{width:240,flexDirection:"row",marginTop:20,justifyContent:'space-around'}}>
             <TouchableOpacity
                 onPress={() => navigation.goBack()}>
                 <Image style = {{width:40,height:40}} source = {require("../assets/images/moo.png")}/>
@@ -22,13 +22,13 @@ const BagScreen = ({ navigation }) => {
       <View style={{width:"100%",alignItems:"center"}}>
           <View style={{width:350,flexDirection:"row",justifyContent:"space-around",marginTop:15}}>
             <View style={styles.button}>
-              <Text style={{fontSize:20,color:"#707070"}}>立即轉帳</Text>
+              <Text style={{fontSize:18,color:"#707070"}}>立即轉帳</Text>
             </View>
             <View style={styles.button}>
-              <Text style={{fontSize:20,color:"#707070"}}>預約轉帳</Text>
+              <Text style={{fontSize:18,color:"#707070"}}>預約轉帳</Text>
             </View>
           </View>
-          <View style={{width:370,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
+          <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
           <View style={{marginTop:15}}>
             <Text style={{fontSize:17,color:"#707070"}}>轉出金額</Text>
             <View style={{width:310,height:39,backgroundColor:"#fff",marginTop:15}}></View>
@@ -53,7 +53,7 @@ const BagScreen = ({ navigation }) => {
               <Text style={{fontSize:15,color:"#707070"}}>(415)4372-73-5073421-9</Text>
             </View>
           </View>
-          <View style={{width:370,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
+          <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
               <View style={{width:310,justifyContent:"space-between",marginTop:17}}>
               <Text style={{fontSize:17,color:"#707070"}}>轉出對象</Text>
           </View>
@@ -125,11 +125,11 @@ const styles = StyleSheet.create({
   },
   header:{
     width:"100%",
-    height:100,
+    height:71,
     backgroundColor:"#ADDEDA",
     flexDirection:"row",
     alignItems:"center",
-    //justifyContent:"center"
+    //justifyContent:"flex-start"
   },
   button:{
     width:150,
