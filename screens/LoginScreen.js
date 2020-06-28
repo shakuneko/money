@@ -1,27 +1,49 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View,TextInput} from 'react-native';
+import {Component} from "react";
 import LinearGradient from 'react-native-linear-gradient';
 import HomeScreen from './HomeScreen';
-import { render } from 'react-dom';
+//import { render } from 'react-dom';
 
-const LoginScreen = ({ navigation }) =>  {
+const userInfo={username:"meowmo", password:"mmo"}
+
+export default class LoginScreen extends Component{
     
+        constructor(props){
+            super(props);
+            this.state={
+                username:'',
+                password:''
+            }
+        }
+    
+render(){
     return(
-        
-       
         <View style={styles.container}>
             <View style={{flex:1,justifyContent:"center", alignItems:"center"}}>
             <Image style = {{width:100,height:125}} source = {require("../assets/images/FUR.png")}/>
                 <Text style={{fontSize:30,color:"#707070"}}>錢之所向</Text>
                 <View>
-                    <View style={styles.frame}></View>
-                    <View style={styles.frame}></View>
+                    <TextInput 
+                        style={styles.frame}
+                        placeholder="   Username"
+                        onChangeText={(username)=>this.setState({username})}
+                        value={this.state.username}
+                        autoCapitalize="none"
+                    />
+                    <TextInput 
+                        style={styles.frame}
+                        placeholder="   Password"
+                        onChangeText={(password)=>this.setState({password})}
+                        value={this.state.password}
+                    />
                 </View>
                 <View style={{width:300,flexDirection:"row",marginTop:28,justifyContent:"space-around"}}>
                     <View style={styles.frame2}>
                         <TouchableOpacity 
                         style={{marginTop:0}}
-                        onPress={()=>navigation.navigate(" ")}
+                        onPress={this._login}
+                        //onPress={()=>this.props.navigation.navigation.navigate(" ")}
                         >
                             <Text style={{fontSize:20,color:"#FFF"}}>登入</Text>
                             <Text style={{fontSize:12,color:"#FFF"}}>Sign In</Text>
@@ -30,7 +52,8 @@ const LoginScreen = ({ navigation }) =>  {
                     <View style={styles.frame3}>
                         <TouchableOpacity 
                         style={{marginTop:0}}
-                        onPress={()=>navigation.navigate("Register")}
+                        onPress={this._Register}
+                        //onPress={()=>navigation.push("Register")}
                         >
                             <Text style={{fontSize:20,color:"#FFF"}}>註冊</Text>
                             <Text style={{fontSize:12,color:"#FFF"}}>Sign Up</Text>
@@ -40,8 +63,19 @@ const LoginScreen = ({ navigation }) =>  {
             </View>
         </View>
    
-    )
-    
+    );
+}
+     _login = async() => {
+         if(userInfo.username === this.state.username && userInfo.password === this.state.password){
+            //alert('Logged In');
+            this.props.navigation.navigate(" ")
+         }else{
+             alert('Username or Password is incorred');
+         }
+     };
+     _Register = async() => {
+        this.props.navigation.navigate("Register")
+     }
 }
 
 const styles = StyleSheet.create({
@@ -70,4 +104,3 @@ const styles = StyleSheet.create({
         justifyContent:"center"
       },
   });
-export default LoginScreen;

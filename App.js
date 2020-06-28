@@ -14,6 +14,8 @@ import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createStackNavigator();
 
+
+
 export default function App(props) {
   const isLoadingComplete = useCachedResources();
 
