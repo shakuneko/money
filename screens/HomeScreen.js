@@ -31,7 +31,7 @@ export default function HomeScreen({ navigation }) {
           <View>
 
             <View style={styles.square1}>
-            <LinearGradient colors={['#4c669f', '#3b5998']} >
+            
               <Text style={{fontSize:17,color:"#707070"}}>回饋報告</Text>
               <View style={{width:290,height:1.5,backgroundColor:"#ADDEDA",marginTop:15}}></View>
               <View style={{width:290,flexDirection:"row",justifyContent:"space-around",marginTop:15}}>
@@ -50,7 +50,7 @@ export default function HomeScreen({ navigation }) {
                     <Text style={{fontSize:17,color:"#707070"}}>10</Text>
                   </View>
               </View>
-              </LinearGradient>
+             
             </View>
             <View style={styles.square2}>
               <Text style={{fontSize:17,color:"#707070"}}>活動優惠</Text>
