@@ -7,6 +7,7 @@ import Checkbox from 'react-native-custom-checkbox';
 
 const BagScreen = ({ navigation }) => {
   return (
+   
     <View style={styles.container}>
       <View style={styles.header}>
           <View style={{width:270,flexDirection:"row",justifyContent:"space-around",marginTop:20}}>
@@ -17,6 +18,7 @@ const BagScreen = ({ navigation }) => {
             <Text style={{fontSize:20,color:"#707070"}}>轉帳</Text>
           </View>
       </View>
+      <ScrollView> 
       <View style={{width:"100%",alignItems:"center"}}>
           <View style={{width:350,flexDirection:"row",justifyContent:"space-around",marginTop:15}}>
             <View style={styles.button}>
@@ -76,24 +78,41 @@ const BagScreen = ({ navigation }) => {
               </View>
               <View>
                     <View style={{width:89,height:80,backgroundColor:"#FFEB6C",alignItems:"center",justifyContent:"center"}}>
-                        <Image style = {{width:69,height:59}} source = {require("../assets/images/son.png")}/>
+                        <Image style = {{width:69,height:59}} source = {require("../assets/images/workwith.png")}/>
                     </View>
                     <View style={{width:89,height:30,backgroundColor:"#fff",alignItems:"center",justifyContent:"center"}}>
-                      <Text style={{fontSize:10,color:"#707070"}}>兒子</Text>
+                      <Text style={{fontSize:10,color:"#707070"}}>建商</Text>
+                      <Text style={{fontSize:10,color:"#707070"}}>(公司長期合作)</Text>
                     </View>
               </View>
               <View>
                     <View style={{width:89,height:80,backgroundColor:"#FFEB6C",alignItems:"center",justifyContent:"center"}}>
-                        <Image style = {{width:69,height:59}} source = {require("../assets/images/son.png")}/>
+                        <Image style = {{width:69,height:59}} source = {require("../assets/images/wife.png")}/>
                     </View>
                     <View style={{width:89,height:30,backgroundColor:"#fff",alignItems:"center",justifyContent:"center"}}>
-                      <Text style={{fontSize:10,color:"#707070"}}>兒子</Text>
+                      <Text style={{fontSize:10,color:"#707070"}}>老婆</Text>
                     </View>
               </View>
             </View>
           </View>
+          <View style={{width:300,justifyContent:"flex-start"}}>
+              <View style={{width:110,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
+                  <Image style = {{width:30,height:30}} source = {require("../assets/images/money.png")}/>
+                  <Text  style={{fontSize:17,color:"#707070"}}>輸入帳號</Text>
+              </View>
+          </View>
+            <View style={styles.frame}></View>
+            <TouchableOpacity
+                    onPress={() => navigation.push('ConfirmScreen')}>
+                    <View style={styles.button3}>
+                      <Text style={{fontSize:20,color:"#707070"}}>立即轉帳</Text>
+                    </View>
+          </TouchableOpacity>
+            
       </View>
+      </ScrollView>
     </View>
+    
   )
 }
 
@@ -135,6 +154,16 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     alignItems:"center",
     marginTop:15
+  },
+  button3:{
+    width:150,
+    height:40,
+    backgroundColor:"#FFEB6C",
+    borderRadius:17,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:20,
+    marginBottom:30
   }
 });
 export default BagScreen;

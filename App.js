@@ -6,7 +6,9 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import LinkingConfiguration from './navigation/LinkingConfiguration';
-import TransferScreen from "./screens/TransferScreen"
+import TransferScreen from "./screens/TransferScreen";
+import ConfirmScreen from "./screens/ConfirmScreen";
+import FinishScreen from "./screens/FinishScreen"
 
 const Stack = createStackNavigator();
 
@@ -28,6 +30,24 @@ export default function App(props) {
             },
           }}/>
           <Stack.Screen name="TransferScreen" component={TransferScreen} 
+           options={{
+            title: " ",
+            headerStyle: {
+              height: 0,
+              backgroundColor: '#fafafa',
+            },
+            headerLeft: null
+          }}/>
+          <Stack.Screen name="ConfirmScreen" component={ConfirmScreen} 
+           options={{
+            title: " ",
+            headerStyle: {
+              height: 0,
+              backgroundColor: '#fafafa',
+            },
+            headerLeft: null
+          }}/>
+          <Stack.Screen name="FinishScreen" component={FinishScreen} 
            options={{
             title: " ",
             headerStyle: {

@@ -6,7 +6,7 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
 const PayScreen = ({ navigation }) => {
   return (
-  <ScrollView>
+  
     <View style={styles.container}>
      <View style={styles.header}>
       <View style={{alignItems:"center"}}>
@@ -56,10 +56,12 @@ const PayScreen = ({ navigation }) => {
               <Text style={{fontSize:15,color:"#707070"}}>收款</Text>
             </View>
         </View>
+        
           <View style={{height:70,alignItems:"center",justifyContent:"center"}}>
               <View style={{width:350,height:1.5,backgroundColor:"#F1AB86A1",borderRadius:10}}></View>
           </View>
       </View>
+      <ScrollView style={{top:-30}}>
       <View style={styles.cost}>
           <View style={{width:330,justifyContent:"flex-start"}}>
             <Text style={{fontSize:15,color:"#15A7CC"}}>06/26</Text>
@@ -95,9 +97,9 @@ const PayScreen = ({ navigation }) => {
             
 
       </View>
-      
+      </ScrollView> 
     </View>
-  </ScrollView> 
+  
   )
 }
 
@@ -127,7 +129,8 @@ const styles = StyleSheet.create({
     marginTop:25
   },
   cost:{
-    marginTop:-20,
+    height:350,
+    marginTop:0,
     alignItems:"center",
      //backgroundColor:"pink",
   },
