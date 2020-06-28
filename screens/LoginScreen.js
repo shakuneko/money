@@ -5,10 +5,14 @@ import LinearGradient from 'react-native-linear-gradient';
 import HomeScreen from './HomeScreen';
 //import { render } from 'react-dom';
 
-const userInfo={username:"meowmo", password:"mmo"}
+const userInfo={username:"meowmo", password:"mmo01060113"}
+
+const gradientHeight=900;
+const gradientBackground  = '#FFF4AD';
+const data = Array.from({ length: gradientHeight+1 });
 
 export default class LoginScreen extends Component{
-    
+
         constructor(props){
             super(props);
             this.state={
@@ -19,6 +23,22 @@ export default class LoginScreen extends Component{
     
 render(){
     return(
+        <View style={{flex:1,zIndex:3}}> 
+         {data.map((_, i) => (
+                          <View
+                              key={i}
+                              style={{
+                                  position: 'absolute',
+                                  backgroundColor: gradientBackground,
+                                  height: 1,
+                                  bottom: (gradientHeight - i),
+                                  right: 0,
+                                  left: 0,
+                                  zIndex: 0,
+                                  opacity: (1 / gradientHeight) * (i + 1)
+                              }}
+                          />
+                      ))} 
         <View style={styles.container}>
             <View style={{flex:1,justifyContent:"center", alignItems:"center"}}>
             <Image style = {{width:100,height:125}} source = {require("../assets/images/FUR.png")}/>
@@ -26,14 +46,15 @@ render(){
                 <View>
                     <TextInput 
                         style={styles.frame}
-                        placeholder="   Username"
+                        placeholder="Username"
                         onChangeText={(username)=>this.setState({username})}
                         value={this.state.username}
                         autoCapitalize="none"
                     />
                     <TextInput 
                         style={styles.frame}
-                        placeholder="   Password"
+                        placeholder="Password"
+                        secureTextEntry
                         onChangeText={(password)=>this.setState({password})}
                         value={this.state.password}
                     />
@@ -62,6 +83,7 @@ render(){
                 </View>
             </View>
         </View>
+        </View>
    
     );
 }
@@ -81,13 +103,14 @@ render(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#FFFCE2',
+      //backgroundColor: '#FFFCE2',
     },
     frame:{
       width:274,
       height:41,
       backgroundColor:"#fff",
-      marginTop:20
+      marginTop:20,
+      paddingLeft:16
     },
     frame2:{
       width:118,
