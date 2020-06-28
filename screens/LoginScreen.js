@@ -7,7 +7,7 @@ import HomeScreen from './HomeScreen';
 
 const userInfo={username:"meowmo", password:"mmo01060113"}
 
-const gradientHeight=900;
+const gradientHeight=500;
 const gradientBackground  = '#FFF4AD';
 const data = Array.from({ length: gradientHeight+1 });
 
@@ -23,6 +23,7 @@ export default class LoginScreen extends Component{
     
 render(){
     return(
+        <View style={styles.container}>
         <View style={{flex:1,zIndex:3}}> 
          {data.map((_, i) => (
                           <View
@@ -39,7 +40,7 @@ render(){
                               }}
                           />
                       ))} 
-        <View style={styles.container}>
+        
             <View style={{flex:1,justifyContent:"center", alignItems:"center"}}>
             <Image style = {{width:100,height:125}} source = {require("../assets/images/FUR.png")}/>
                 <Text style={{fontSize:30,color:"#707070"}}>錢之所向</Text>
@@ -103,7 +104,7 @@ render(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      //backgroundColor: '#FFFCE2',
+      backgroundColor: '#FFFCE2',
     },
     frame:{
       width:274,
