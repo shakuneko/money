@@ -1,15 +1,17 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
-import  React,{useState,useEffect} from 'react';
+import  React,{useState,useEffect,useContext} from 'react';
 //import * as React from 'react';
 import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput,AsyncStorage} from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
+import {StoreContext} from "../stores/MoneyStore";
 //import {useState,useEffect} from "react";
 //import { TextInput } from 'react-native-paper';
 
-export default function TransferScreen({ navigation }) {
+export const TransferScreen = ({ navigation }) => {
 
+  const { NameState } = useContext(StoreContext);
   const [name,setName] = useState();
   const save = async() => {
     try {

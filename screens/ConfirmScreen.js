@@ -1,14 +1,16 @@
 
-import  React,{useState} from 'react';
+import  React,{useContext} from 'react';
 //import * as React from 'react';
-import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput } from 'react-native';
+import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput,Input } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
+import {StoreContext} from "../stores/MoneyStore";
 
 
 export default function ConfirmScreen({ navigation }) {
 
-  const [name,setName] = useState();
+  const {NameState} = useContext(StoreContext);
+  let [name,setName] = useState;
     return (
      
       <View style={styles.container}>
@@ -24,7 +26,9 @@ export default function ConfirmScreen({ navigation }) {
         <View style={{width:"100%",alignItems:"center"}}>
               <View style={{marginTop:30}}>
             <Text style={{fontSize:17,color:"#707070"}}>確認帳號{name}</Text>
-                <TextInput style={styles.input}  onChangerText={(name) => setName(name)}></TextInput>
+                <Input style={styles.input}
+                value={name.text}  
+                onChangerText={(text) => setName({...name,text})}></Input>
               </View>
               <View style={{marginTop:15}}>
                 <Text style={{fontSize:17,color:"#707070"}}>確認金額</Text>
