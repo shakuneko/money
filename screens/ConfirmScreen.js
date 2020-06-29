@@ -1,11 +1,14 @@
-import * as React from 'react';
-import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native';
+
+import  React,{useState} from 'react';
+//import * as React from 'react';
+import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
 
 
+export default function ConfirmScreen({ navigation }) {
 
-const ConfirmScreen = ({ navigation }) => {
+  const [name,setName] = useState();
     return (
      
       <View style={styles.container}>
@@ -20,8 +23,8 @@ const ConfirmScreen = ({ navigation }) => {
         </View>
         <View style={{width:"100%",alignItems:"center"}}>
               <View style={{marginTop:30}}>
-                <Text style={{fontSize:17,color:"#707070"}}>確認帳號</Text>
-                <View style={{width:310,height:45,backgroundColor:"#fff",marginTop:10}}></View>
+            <Text style={{fontSize:17,color:"#707070"}}>確認帳號{name}</Text>
+                <TextInput style={styles.input}  onChangerText={(name) => setName(name)}></TextInput>
               </View>
               <View style={{marginTop:15}}>
                 <Text style={{fontSize:17,color:"#707070"}}>確認金額</Text>
@@ -81,7 +84,13 @@ const ConfirmScreen = ({ navigation }) => {
       justifyContent:"center",
       marginTop:35,
       marginBottom:20
+    },
+    input:{
+      width:310,
+      height:45,
+      backgroundColor:"#fff",
+      marginTop:10
     }
   });
-  export default ConfirmScreen;
+
   

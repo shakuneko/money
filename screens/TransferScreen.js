@@ -1,11 +1,38 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as WebBrowser from 'expo-web-browser';
-import * as React from 'react';
-import { StyleSheet, Text, View,TouchableOpacity,Image } from 'react-native';
+import  React,{useState,useEffect} from 'react';
+//import * as React from 'react';
+import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput,AsyncStorage} from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
+//import {useState,useEffect} from "react";
+//import { TextInput } from 'react-native-paper';
 
-const BagScreen = ({ navigation }) => {
+export default function TransferScreen({ navigation }) {
+
+  const [name,setName] = useState();
+  const save = async() => {
+    try {
+      await AsyncStorage.setItem("Myname",name)
+    }catch (err){
+      alert(err);   
+    }
+  };
+  const load = async () =>{
+    try{
+      let name = await AsyncStorage.getItem("MyName");
+
+      if(name !== null){
+        setName(name);
+      }
+    }catch(err){
+      alert(err);
+    }
+  };
+ 
+  useEffect(() => {
+    load();
+  },[]);
   return (
    
     <View style={styles.container}>
@@ -30,8 +57,12 @@ const BagScreen = ({ navigation }) => {
           </View>
           <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
           <View style={{marginTop:15}}>
-            <Text style={{fontSize:17,color:"#707070"}}>轉出金額</Text>
-            <View style={{width:310,height:39,backgroundColor:"#fff",marginTop:15}}></View>
+         <Text style={{fontSize:17,color:"#707070"}}>轉出金額</Text>
+              <Text>{name}</Text>
+            <TextInput 
+                style={styles.input} 
+                onChangerText={(name) => setName(name)}>
+              </TextInput>
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:17}}>
               <Text style={{fontSize:17,color:"#707070"}}>是否跨行集合轉帳</Text>
@@ -101,9 +132,10 @@ const BagScreen = ({ navigation }) => {
                   <Text  style={{fontSize:17,color:"#707070"}}>輸入帳號</Text>
               </View>
           </View>
-            <View style={styles.frame}></View>
+            <TextInput style={styles.frame}></TextInput>
             <TouchableOpacity
-                    onPress={() => navigation.push('ConfirmScreen')}>
+                    
+                   onPress={() => navigation.push('ConfirmScreen')}>
                     <View style={styles.button3}>
                       <Text style={{fontSize:20,color:"#707070"}}>立即轉帳</Text>
                     </View>
@@ -153,7 +185,8 @@ const styles = StyleSheet.create({
     backgroundColor:"#fff",
     justifyContent:"center",
     alignItems:"center",
-    marginTop:15
+    marginTop:15,
+    paddingLeft:13
   },
   button3:{
     width:150,
@@ -164,6 +197,13 @@ const styles = StyleSheet.create({
     justifyContent:"center",
     marginTop:20,
     marginBottom:30
+  },
+  input:{
+    width:310,
+    height:39,
+    backgroundColor:"#fff",
+    marginTop:15,
+    paddingLeft:13
   }
 });
-export default BagScreen;
+

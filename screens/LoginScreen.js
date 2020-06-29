@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import HomeScreen from './HomeScreen';
 //import { render } from 'react-dom';
 
-const userInfo={username:"meowmo", password:"mmo01060113"}
+const userInfo={username:"1", password:"2"}
 
 const gradientHeight=500;
 const gradientBackground  = '#FFF4AD';
