@@ -19,21 +19,21 @@ export default function TransferScreen({ navigation }) {
     }
   };
   const load = async () =>{
-    try{
-      let name = await AsyncStorage.getItem("MyName");
+      try{
+          let name = await AsyncStorage.getItem("Myname");
 
-      if(name !== null){
-        setName(name);
-      }
-    }catch(err){
-      alert(err);
-    }
-  };
- 
-  useEffect(() => {
-    load();
-  },[]);
-  return (
+          if(name !== null){
+            setName(name);
+          }
+        }catch(err){
+          alert(err);
+        }
+      };
+    
+      useEffect(() => {
+        load();
+      },[]);
+      return (
    
     <View style={styles.container}>
       <View style={styles.header}>
@@ -61,7 +61,7 @@ export default function TransferScreen({ navigation }) {
               <Text>{name}</Text>
             <TextInput 
                 style={styles.input} 
-                onChangerText={(name) => setName(name)}>
+                onChangeText={(text) => setName(text)}>
               </TextInput>
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:17}}>
@@ -135,7 +135,7 @@ export default function TransferScreen({ navigation }) {
             <TextInput style={styles.frame}></TextInput>
             <TouchableOpacity
                     
-                   onPress={() => navigation.push('ConfirmScreen')}>
+                    onPress={ ()=> save()}>
                     <View style={styles.button3}>
                       <Text style={{fontSize:20,color:"#707070"}}>立即轉帳</Text>
                     </View>
