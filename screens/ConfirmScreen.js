@@ -1,6 +1,6 @@
 
-import  React,{useContext} from 'react';
-//import * as React from 'react';
+//import  React,{useContext} from 'react';
+import * as React from 'react';
 import { StyleSheet, Text, View,TouchableOpacity,Image,TextInput,Input } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
@@ -10,9 +10,8 @@ import {StoreContext} from "../stores/MoneyStore";
 export default function ConfirmScreen({ navigation }) {
 
   const {NameState} = useContext(StoreContext);
-  let [name,setName] = useState;
+  let [name,setName] = NameState;
     return (
-     
       <View style={styles.container}>
         <View style={styles.header}>
         <View style={{width:240,flexDirection:"row",marginTop:20,justifyContent:'space-around'}}>

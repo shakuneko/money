@@ -9,10 +9,10 @@ import {StoreContext} from "../stores/MoneyStore";
 //import {useState,useEffect} from "react";
 //import { TextInput } from 'react-native-paper';
 
-export const TransferScreen = ({ navigation }) => {
+const TransferScreen =({ navigation }) => {
 
   const { NameState } = useContext(StoreContext);
-  const [name,setName] = useState();
+  const [name,setName] = NameState;
   const save = async() => {
     try {
       await AsyncStorage.setItem("Myname",name)
@@ -63,7 +63,8 @@ export const TransferScreen = ({ navigation }) => {
               <Text>{name}</Text>
             <TextInput 
                 style={styles.input} 
-                onChangeText={(text) => setName(text)}>
+                onChangeText={(text) => setName(text)}
+                  value={text}>
               </TextInput>
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:17}}>
@@ -209,3 +210,4 @@ const styles = StyleSheet.create({
   }
 });
 
+export default TransferScreen;

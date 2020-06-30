@@ -7,8 +7,8 @@ export const StoreProvider = ({ children }) => {
     const [name ,setName] =useState(TransferScreen);
     const [pass ,setPass] =useState(TransferScreen);
     const store = {
-        NameState:[name ,setName],
-        PassState:[pass,setPass],
+        NameState: [name ,setName],
+        PassState: [pass,setPass],
 
     };
   return(
