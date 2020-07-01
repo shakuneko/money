@@ -1,9 +1,13 @@
 import * as WebBrowser from 'expo-web-browser';
-import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+//import * as React from 'react';
+import React, {Component, useState } from "react";
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View , Alert, Modal,TouchableHighlight} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import{VictoryPie,VictoryLegend }from "victory-native"
 import { MonoText } from '../components/StyledText';
+
+
+
 
 const gradientHeight=500;
 const gradientBackground  = '#FFF4AD';
@@ -15,9 +19,13 @@ const sampleData=[
 ];
 const dataColor =["#FFEB6C","#F8CB60"];
 export default function PersonalScreen() {
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <ScrollView >
     <View style={styles.container}>
+    
     <View style={{flex:1,zIndex:3}}> 
          {data.map((_, i) => (
                           <View
@@ -38,13 +46,14 @@ export default function PersonalScreen() {
         <View style={styles.title}>
             <Image style = {{top:12,width:83,height:83}} source = {require("../assets/images/Head.png")}/>
           <TouchableOpacity
-              onPress={alert('标题内容','正文内容')}
               activeOpacity={0.7}
+              style={styles.plus}
+              onPress={() => {
+                setModalVisible(true);
+              }}
               >
-            <View style={styles.plus}>
             <Image style = {{width:14,height:14}} source = {require("../assets/images/plus.png")}/>
             <Text style={{fontSize:12,color:"#15A7CC"}}>新增帳號</Text>
-            </View>
           </TouchableOpacity>
         </View>
         <View style={styles.word}>
@@ -62,6 +71,8 @@ export default function PersonalScreen() {
             </View>
           </View>
         </View>
+       
+       
         <View style={{justifyContent:"center",display:"flex",alignItems:"center",width:"94.5%",marginBottom:30}}>
             <View  style={styles.square2}>
                 <Text style={{fontSize:20,color:"#15A7CC",marginTop:15}}>帳務分析</Text>
@@ -101,7 +112,19 @@ export default function PersonalScreen() {
                 </View>
             </View>
             <View  style={styles.square3}>
-            <Text style={{fontSize:20,color:"#15A7CC",marginTop:15}}>我的群組</Text>
+              <View style={{width:330,alignItems:"flex-end"}}>
+                  <View style={{flexDirection:"row",width:250,height:50,justifyContent:"space-around",alignItems:"center"}}>
+                        <Text style={{fontSize:20,color:"#15A7CC"}}>我的群組</Text>
+                        <TouchableOpacity
+                            activeOpacity={0.7}
+                            onPress={() => {
+                              setModalVisible(true);
+                            }}
+                            >
+                        <Image style = {{width:14,height:14}} source = {require("../assets/images/plus.png")}/>
+                        </TouchableOpacity>
+                  </View>
+              </View>
               <View style={{flexDirection:"row",justifyContent:"space-around",width:300,alignItems:"center",marginTop:20}}>
                   <View style={styles.family}> 
                     <Image style = {{width:80,height:80,borderRadius:13}} source = {require("../assets/images/family.png")}/>
@@ -123,7 +146,34 @@ export default function PersonalScreen() {
 
             </View>
             </View>
+            <Modal
+                  animationType="fade"
+                  transparent={true}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                    <Image style = {{width:50,height:60,marginLeft:110,marginTop:-35}} source = {require("../assets/images/personal.png")}/>
+                      <Text style={styles.modalText}>尚未完成</Text>
+                      
+                      <TouchableHighlight
+                        style={{ ...styles.openButton, backgroundColor: "#FFEB6C" }}
+                        onPress={() => {
+                          setModalVisible(!modalVisible);
+                        }}
+                      >
+                        <Text style={styles.textStyle}>返回</Text>
+                      </TouchableHighlight>
+                     
+                      </View>
+                  </View>
+                </Modal>
             </View>
+           
+          
             </View>
       </ScrollView>
       
@@ -216,5 +266,48 @@ const styles = StyleSheet.create({
       backgroundColor:"#FFEB6C",
       justifyContent:"center",
       alignItems:"center"
+  },
+   openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    width:200,
+    height:150,
+    //margin: 20,
+    backgroundColor: "#ADDEDA",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  textStyle: {
+     width:70,
+    height:15,
+    fontSize:12,
+    color: "#2D2D2D",
+    //fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginTop:-10,
+    marginBottom: 15,
+    textAlign: "center"
   }
 });
+

@@ -1,6 +1,7 @@
 import * as WebBrowser from 'expo-web-browser';
-import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View,ImageBackground,ScrollView,} from 'react-native';
+//import * as React from 'react';
+import React, {Component, useState } from "react";
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View,ImageBackground,ScrollView,Alert, Modal,TouchableHighlight} from 'react-native';
 //import { ScrollView } from 'react-native-gesture-handler';
 //import LinearGradient from 'react-native-linear-gradient';
 import { MonoText } from '../components/StyledText';
@@ -8,6 +9,10 @@ import { MonoText } from '../components/StyledText';
 
 
 export default function HomeScreen({ navigation }) {
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [Visible, setVisible] = useState(false);
+
   return (
     <View style={styles.container}>
       <ImageBackground  style = {{width:360,height:206,justifyContent:"center"}}source = {require("../assets/images/Top.png")}>
@@ -60,14 +65,84 @@ export default function HomeScreen({ navigation }) {
               <View style={{width:290,height:1.5,backgroundColor:"#ADDEDA",marginTop:15}}></View>
              
               <View style={{width:290,flexDirection:"row",justifyContent:"space-around",marginTop:20}}>
+                  <TouchableOpacity
+                  activeOpacity={0.7}
+                  style={styles.plus}
+                  onPress={() => {
+                    setModalVisible(true);
+                  }}
+                  >
                   <Image style = {{width:130,height:118}} source = {require("../assets/images/discount.png")}/>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.7}
+                  style={styles.plus}
+                  onPress={() => {
+                    setVisible(true);
+                  }}
+                  >
                   <Image style = {{width:130,height:118}} source = {require("../assets/images/discount2.png")}/>
+                  </TouchableOpacity>
               </View>
             </View>
           </View>
 
         </View>
        </ScrollView> 
+       <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                    <Image style = {{width:250,height:250,}} source = {require("../assets/images/big2.png")}/>
+                      <Text style={styles.modalText}>限時免費還不把握嗎?</Text>
+                      <Text style={styles.modalText2}>一起跟上金毛的腳步開啟手機轉帳吧!</Text>
+                      
+                      <TouchableHighlight
+                        style={{ ...styles.openButton, backgroundColor: "#FFEB6C" }}
+                        onPress={() => {
+                          setModalVisible(!modalVisible);
+                        }}
+                      >
+                        <Text style={styles.textStyle}>知道了</Text>
+                      </TouchableHighlight>
+                     
+                      </View>
+                  </View>
+                </Modal>
+
+
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={Visible}
+                  onRequestClose={() => {
+                    Alert.alert("Modal has been closed.");
+                  }}
+                >
+                  <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                    <Image style = {{width:250,height:250,}} source = {require("../assets/images/big1.png")}/>
+                      <Text style={styles.modalText}>新活動!全新登場</Text>
+                      <Text style={styles.modalText2}>現在加入會員即可免費體驗付費功能喔!</Text>
+                      
+                      <TouchableHighlight
+                        style={{ ...styles.openButton, backgroundColor: "#FFEB6C" }}
+                        onPress={() => {
+                          setVisible(!Visible);
+                        }}
+                      >
+                        <Text style={styles.textStyle}>了解</Text>
+                      </TouchableHighlight>
+                     
+                      </View>
+                  </View>
+                </Modal>
         </View>
         
       
@@ -118,4 +193,53 @@ const styles = StyleSheet.create({
   marginTop:30,
   marginBottom:25
  },
+
+
+ centeredView: {
+  flex: 1,
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: 22
+},
+modalView: {
+  width:300,
+  height:420,
+  //margin: 20,
+  backgroundColor: "#FFFCE2",
+  borderRadius: 20,
+  padding: 35,
+  alignItems: "center",
+  shadowColor: "#000",
+  shadowOffset: {
+    width: 0,
+    height: 2
+  },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5
+},
+textStyle: {
+   width:100,
+  height:15,
+  fontSize:12,
+  color: "#2D2D2D",
+  fontWeight: "bold",
+  textAlign: "center",
+},
+modalText: {
+  width:300,
+  marginTop:15,
+  textAlign: "center"
+},
+modalText2: {
+  width:300,
+  marginBottom:15,
+  textAlign: "center"
+},
+openButton: {
+  backgroundColor: "#F194FF",
+  borderRadius: 10,
+  padding: 10,
+  elevation: 2
+},
 });
