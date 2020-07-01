@@ -4,6 +4,11 @@ import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react
 import { ScrollView } from 'react-native-gesture-handler';
 import{VictoryPie,VictoryLegend }from "victory-native"
 import { MonoText } from '../components/StyledText';
+
+const gradientHeight=500;
+const gradientBackground  = '#FFF4AD';
+const data = Array.from({ length: gradientHeight+1 });
+
 const sampleData=[
   { x:"收入" , y:60 },
   { x:"支出" , y:40},
@@ -13,26 +18,47 @@ export default function PersonalScreen() {
   return (
     <ScrollView >
     <View style={styles.container}>
+    <View style={{flex:1,zIndex:3}}> 
+         {data.map((_, i) => (
+                          <View
+                              key={i}
+                              style={{
+                                  position: 'absolute',
+                                  backgroundColor: gradientBackground,
+                                  height: 1,
+                                  bottom: (gradientHeight - i),
+                                  right: 0,
+                                  left: 0,
+                                  zIndex: 0,
+                                  opacity: (1 / gradientHeight) * (i + 1)
+                              }}
+                          />
+                      ))} 
       <View style={styles.square}>
         <View style={styles.title}>
             <Image style = {{top:12,width:83,height:83}} source = {require("../assets/images/Head.png")}/>
+          <TouchableOpacity
+              onPress={alert('标题内容','正文内容')}
+              activeOpacity={0.7}
+              >
             <View style={styles.plus}>
             <Image style = {{width:14,height:14}} source = {require("../assets/images/plus.png")}/>
-            <Text style={{fontSize:12}}>新增帳號</Text>
+            <Text style={{fontSize:12,color:"#15A7CC"}}>新增帳號</Text>
             </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.word}>
             <View style={styles.name}>
-              <Text style={{fontSize:20,color:"#15A7CC"}}>Memo</Text>
-              <Text style={{fontSize:12,color:"#787878"}}>暱稱:</Text>
-              <Text style={{fontSize:17,color:"#787878"}}>錢王</Text>
+              <Text style={{fontSize:20,color:"#FFEB6C"}}>Memo</Text>
+              <Text style={{fontSize:12,color:"#fff"}}>暱稱:</Text>
+              <Text style={{fontSize:17,color:"#fff"}}>錢王</Text>
 
             </View>
             <View style={styles.account}>
-            <Text style={{fontSize:12,color:"#787878"}}>帳號</Text>
-              <Text style={{fontSize:15,color:"#787878"}}>(810)3655-20-8903783-2</Text>
-              <Text style={{fontSize:15,color:"#787878"}}>(415)4372-73-5073421-9</Text>
-              <Text style={{fontSize:15,color:"#787878"}}>(769)5609-86-6983531-4</Text>
+            <Text style={{fontSize:12,color:"#fff"}}>帳號</Text>
+              <Text style={{fontSize:15,color:"#fff"}}>(810)3655-20-8903783-2</Text>
+              <Text style={{fontSize:15,color:"#fff"}}>(415)4372-73-5073421-9</Text>
+              <Text style={{fontSize:15,color:"#fff"}}>(769)5609-86-6983531-4</Text>
             </View>
           </View>
         </View>
@@ -97,7 +123,7 @@ export default function PersonalScreen() {
 
             </View>
             </View>
-
+            </View>
             </View>
       </ScrollView>
       
@@ -117,7 +143,8 @@ const styles = StyleSheet.create({
     width:"100%",
     height:230,
     backgroundColor:"#F1AB86",
-    borderRadius:40
+    borderRadius:40,
+    elevation:3
   },
   title:{
     top:45,

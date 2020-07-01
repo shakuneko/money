@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View,useNavigationState } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,useNavigationState,Alert } from 'react-native';
 import {StoreProvider} from "./stores/MoneyStore";
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
@@ -68,7 +68,7 @@ const App = ( ) => {
             },
             headerLeft: false
           }}/>
-           <Stack.Screen name = "Register" component={RegisterScreen} 
+           <Stack.Screen name = "RegisterScreen" component={RegisterScreen} 
           options={{
             headerStyle: {
               height: 0,

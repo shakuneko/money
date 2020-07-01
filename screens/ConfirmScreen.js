@@ -6,6 +6,9 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import Checkbox from 'react-native-custom-checkbox';
 import { StoreContext } from "../stores/MoneyStore";
 
+const gradientHeight=500;
+const gradientBackground  = '#FFF4AD';
+const data = Array.from({ length: gradientHeight+1 });
 
 const ConfirmScreen = ({ navigation }) => {
 
@@ -17,14 +20,30 @@ const ConfirmScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={{ width: 240, flexDirection: "row", marginTop: 20, justifyContent: 'space-around' }}>
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}>
-            <Image style={{ width: 40, height: 40 }} source={require("../assets/images/moo.png")} />
-          </TouchableOpacity>
-          <Text style={{ fontSize: 20, color: "#707070" }}>轉帳</Text>
-        </View>
+      <View style={{flex:1,zIndex:3}}> 
+         {data.map((_, i) => (
+                          <View
+                              key={i}
+                              style={{
+                                  position: 'absolute',
+                                  backgroundColor: gradientBackground,
+                                  height: 1,
+                                  bottom: (gradientHeight - i),
+                                  right: 0,
+                                  left: 0,
+                                  zIndex: 0,
+                                  opacity: (1 / gradientHeight) * (i + 1)
+                              }}
+                          />
+                      ))} 
+       <View style={styles.header}>
+          <View style={{width:200,flexDirection:"row",marginTop:20,justifyContent:"space-between",alignItems:"center"}}>
+            <TouchableOpacity
+                onPress={() => navigation.goBack()}>
+                <Image style = {{width:24,height:24,marginLeft:15}} source = {require("../assets/images/back.png")}/>
+            </TouchableOpacity>
+            <Text style={{fontSize:20,color:"#2D2D2D"}}>轉帳</Text>
+          </View>
       </View>
       <View style={{ width: "100%", alignItems: "center" }}>
         <View style={{ marginTop: 30 }}>
@@ -69,7 +88,7 @@ const ConfirmScreen = ({ navigation }) => {
 
       </View>
 
-
+      </View>                              
     </View>
 
   )
@@ -82,13 +101,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFCE2',
   },
-  header: {
-    width: "100%",
-    height: 71,
-    backgroundColor: "#ADDEDA",
-    flexDirection: "row",
-    alignItems: "center",
-    //justifyContent:"center"
+  header:{
+    width:"100%",
+    height:71,
+    backgroundColor:"#ADDEDA",
+    flexDirection:"row",
+    alignItems:"center",
+    
+    //justifyContent:"flex-start"
   },
   button3: {
     width: 147,

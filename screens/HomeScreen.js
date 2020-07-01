@@ -12,9 +12,12 @@ export default function HomeScreen({ navigation }) {
     <View style={styles.container}>
       <ImageBackground  style = {{width:360,height:206,justifyContent:"center"}}source = {require("../assets/images/Top.png")}>
           <View style={{height:90,flexDirection:"row",justifyContent:"space-around",alignItems:"center"}}>
+          <TouchableOpacity activeOpacity={0.7}>
             <Image style = {styles.ring} source = {require("../assets/images/Ring.png")}/>
+          </TouchableOpacity>
             <Image style = {{width:89,height:89}} source = {require("../assets/images/Head.png")}/>
             <TouchableOpacity
+                activeOpacity={0.7}
                 onPress={() => navigation.push("Login")}>
                 <Image style = {styles.logout} source = {require("../assets/images/logout.png")}/>
             </TouchableOpacity>
@@ -32,7 +35,7 @@ export default function HomeScreen({ navigation }) {
 
             <View style={styles.square1}>
             
-              <Text style={{fontSize:17,color:"#707070"}}>回饋報告</Text>
+              <Text style={{fontSize:17,color:"#2D2D2D"}}>回饋報告</Text>
               <View style={{width:290,height:1.5,backgroundColor:"#ADDEDA",marginTop:15}}></View>
               <View style={{width:290,flexDirection:"row",justifyContent:"space-around",marginTop:15}}>
                   <View style={styles.frame}>
@@ -44,16 +47,16 @@ export default function HomeScreen({ navigation }) {
               </View>
               <View style={{width:290,flexDirection:"row",justifyContent:"space-around",marginTop:10}}>
                   <View >
-                    <Text style={{fontSize:17,color:"#707070"}}>5</Text>
+                    <Text style={{fontSize:17,color:"#2D2D2D"}}>5</Text>
                   </View>
                   <View >
-                    <Text style={{fontSize:17,color:"#707070"}}>10</Text>
+                    <Text style={{fontSize:17,color:"#2D2D2D"}}>10</Text>
                   </View>
               </View>
              
             </View>
             <View style={styles.square2}>
-              <Text style={{fontSize:17,color:"#707070"}}>活動優惠</Text>
+              <Text style={{fontSize:17,color:"#2D2D2D"}}>活動優惠</Text>
               <View style={{width:290,height:1.5,backgroundColor:"#ADDEDA",marginTop:15}}></View>
              
               <View style={{width:290,flexDirection:"row",justifyContent:"space-around",marginTop:20}}>

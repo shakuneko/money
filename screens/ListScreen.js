@@ -7,7 +7,9 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 //import { CheckBox } from 'react-native-elements'
 import Checkbox from 'react-native-custom-checkbox';
 
-
+const gradientHeight=500;
+const gradientBackground  = '#FFF4AD';
+const data = Array.from({ length: gradientHeight+1 });
 
 
 export default function LinksScreen() {
@@ -15,6 +17,23 @@ export default function LinksScreen() {
   return ( 
     
    <View style={styles.container}>
+     <View style={{flex:1,zIndex:3}}> 
+         {data.map((_, i) => (
+                          <View
+                              key={i}
+                              style={{
+                                  position: 'absolute',
+                                  backgroundColor: gradientBackground,
+                                  height: 1,
+                                  bottom: (gradientHeight - i),
+                                  right: 0,
+                                  left: 0,
+                                  zIndex: 0,
+                                  opacity: (1 / gradientHeight) * (i + 1)
+                              }}
+                          />
+                      ))} 
+
      <View style={styles.header}>
        <Text style={{fontSize:20,color:"#fff"}}>交易明細</Text>
      </View>
@@ -100,6 +119,7 @@ export default function LinksScreen() {
       </View>
       </ScrollView>
    </View>
+   </View>
   );
 }
 
@@ -114,7 +134,8 @@ const styles = StyleSheet.create({
     width:"100%",
     height:71,
     justifyContent:"center",
-    alignItems:"center"
+    alignItems:"center",
+    elevation:10
   },
   record:{
     width:330,

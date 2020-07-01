@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View,TextInput} from 'react-native';
+import { Image, Platform, StyleSheet, Text,Alert, TouchableOpacity, View,TextInput} from 'react-native';
 import {Component} from "react";
 import LinearGradient from 'react-native-linear-gradient';
 import HomeScreen from './HomeScreen';
@@ -61,26 +61,33 @@ render(){
                     />
                 </View>
                 <View style={{width:300,flexDirection:"row",marginTop:28,justifyContent:"space-around"}}>
-                    <View style={styles.frame2}>
-                        <TouchableOpacity 
+                    
+                <TouchableOpacity 
+                        activeOpacity={0.7}
+                        style={{marginTop:0}}
+                        onPress={this._Register}
+                        //onPress={()=>navigation.push("Register")}
+                        > 
+                        <View style={styles.frame3}>
+                        <Text style={{fontSize:20,color:"#FFF"}}>註冊</Text>
+                        <Text style={{fontSize:12,color:"#FFF"}}>Sign Up</Text>
+                        
+                    </View>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity 
+                        activeOpacity={0.7}
                         style={{marginTop:0}}
                         onPress={this._login}
                         //onPress={()=>this.props.navigation.navigation.navigate(" ")}
                         >
+                            <View style={styles.frame2}>
                             <Text style={{fontSize:20,color:"#FFF"}}>登入</Text>
                             <Text style={{fontSize:12,color:"#FFF"}}>Sign In</Text>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.frame3}>
-                        <TouchableOpacity 
-                        style={{marginTop:0}}
-                        onPress={this._Register}
-                        //onPress={()=>navigation.push("Register")}
-                        >
-                            <Text style={{fontSize:20,color:"#FFF"}}>註冊</Text>
-                            <Text style={{fontSize:12,color:"#FFF"}}>Sign Up</Text>
-                        </TouchableOpacity>
-                    </View>
+                            </View>
+                    </TouchableOpacity>
+                    
+                   
                 </View>
             </View>
         </View>
@@ -93,11 +100,11 @@ render(){
             //alert('Logged In');
             this.props.navigation.navigate(" ")
          }else{
-             alert('Username or Password is incorred');
+            Alert.alert('','Username or Password is incorred');
          }
      };
      _Register = async() => {
-        this.props.navigation.navigate("Register")
+        this.props.navigation.navigate("RegisterScreen")
      }
 }
 
