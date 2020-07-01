@@ -100,7 +100,7 @@ render(){
             Alert.alert('','Registration success')
             this.props.navigation.navigate(" ")
         }else{
-            Alert.alert('','Errow');
+            Alert.alert('','Error');
         }
     };
     onPress = () => {
