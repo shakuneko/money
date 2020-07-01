@@ -47,14 +47,14 @@ render(){
                 <View>
                     <TextInput 
                         style={styles.frame}
-                        placeholder="Username"
+                        placeholder="使用者名稱 (User Name)"
                         onChangeText={(username)=>this.setState({username})}
                         value={this.state.username}
                         autoCapitalize="none"
                     />
                     <TextInput 
                         style={styles.frame}
-                        placeholder="Password"
+                        placeholder="密碼 (Passwords)"
                         secureTextEntry
                         onChangeText={(password)=>this.setState({password})}
                         value={this.state.password}

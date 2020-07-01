@@ -12,7 +12,11 @@ import {StoreContext} from "../stores/MoneyStore";
 const TransferScreen =({ navigation }) => {
 
   const { NameState } = useContext(StoreContext);
+  const { MoneyState } = useContext(StoreContext);
   const [name,setName] = NameState;
+  const [money,setMoney] = MoneyState;
+
+
   const save = async() => {
     try {
       await AsyncStorage.setItem("Myname",name)
@@ -33,7 +37,7 @@ const TransferScreen =({ navigation }) => {
       };
     
       useEffect(() => {
-        load();
+        // load();
       },[]);
       return (
    
@@ -60,11 +64,10 @@ const TransferScreen =({ navigation }) => {
           <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
           <View style={{marginTop:15}}>
          <Text style={{fontSize:17,color:"#707070"}}>轉出金額</Text>
-              <Text>{name}</Text>
             <TextInput 
                 style={styles.input} 
-                onChangeText={(text) => setName(text)}
-                  value={text}>
+                onChangeText={(name) => setName(name)}
+                  value={name}>
               </TextInput>
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:17}}>
@@ -90,6 +93,7 @@ const TransferScreen =({ navigation }) => {
           <View style={{width:335,height:3,backgroundColor:"#ADDEDA",marginTop:15}}></View>
               <View style={{width:310,justifyContent:"space-between",marginTop:17}}>
               <Text style={{fontSize:17,color:"#707070"}}>轉出對象</Text>
+              
           </View>
           <View style={{width:310,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
               <View style={{width:110,flexDirection:"row",justifyContent:"space-between"}}>
@@ -133,12 +137,18 @@ const TransferScreen =({ navigation }) => {
               <View style={{width:110,flexDirection:"row",justifyContent:"space-between",marginTop:20}}>
                   <Image style = {{width:30,height:30}} source = {require("../assets/images/money.png")}/>
                   <Text  style={{fontSize:17,color:"#707070"}}>輸入帳號</Text>
+                  
               </View>
           </View>
-            <TextInput style={styles.frame}></TextInput>
+             <TextInput 
+                style={styles.input} 
+                onChangeText={(money) => setMoney(money)}
+                  value={money}>
+              </TextInput>
+            
             <TouchableOpacity
                     
-                    onPress={ ()=> save()}>
+                    onPress={() => navigation.navigate('ConfirmScreen')}>
                     <View style={styles.button3}>
                       <Text style={{fontSize:20,color:"#707070"}}>立即轉帳</Text>
                     </View>

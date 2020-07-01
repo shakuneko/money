@@ -1,14 +1,14 @@
 import React,{createContext,useState} from "react";
-import TransferScreen from "../screens/TransferScreen";
+// import TransferScreen from "../screens/TransferScreen";
 
 export const StoreContext = createContext();
 
 export const StoreProvider = ({ children }) => {
-    const [name ,setName] =useState(TransferScreen);
-    const [pass ,setPass] =useState(TransferScreen);
+    const [name ,setName] =useState('');
+    const [money ,setMoney] =useState('');
     const store = {
         NameState: [name ,setName],
-        PassState: [pass,setPass],
+        MoneyState: [money,setMoney],
 
     };
   return(

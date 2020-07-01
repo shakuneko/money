@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,useNavigationState } from 'react-native';
 import {StoreProvider} from "./stores/MoneyStore";
 import useCachedResources from './hooks/useCachedResources';
 import BottomTabNavigator from './navigation/BottomTabNavigator';
@@ -14,7 +14,7 @@ import RegisterScreen from './screens/RegisterScreen';
 
 const Stack = createStackNavigator();
 
-export default function App( ) {
+const App = ( ) => {
   
   const isLoadingComplete = useCachedResources();
 
@@ -22,7 +22,7 @@ export default function App( ) {
     return null;
   } else {
     return (
-      <StoreProvider>
+
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="dark-content" />}
         <NavigationContainer>
@@ -78,7 +78,7 @@ export default function App( ) {
           </Stack.Navigator>
         </NavigationContainer>
       </View>
-      </StoreProvider>
+      
     );
   }
 }
@@ -89,3 +89,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+export default () =>{
+  return(
+    <StoreProvider>
+      <App />
+      </StoreProvider>
+  )
+}
